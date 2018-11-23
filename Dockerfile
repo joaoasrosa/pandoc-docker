@@ -8,3 +8,7 @@ RUN wget https://github.com/jgm/pandoc/releases/download/2.4/pandoc-2.4-linux.ta
   && apk add --no-cache texlive
 
 ENV PANDOC_VERSION "2.4"
+
+ENTRYPOINT ["/usr/local/pandoc-2.4-linux/bin/pandoc"]
+
+CMD ["--help"]
