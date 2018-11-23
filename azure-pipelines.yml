@@ -15,4 +15,4 @@ steps:
     dockerRegistryConnection: 'Docker Hub'
     action: 'Push an image'
     imageName: '$(imageName)'
-    includeLatestTag: true
+    additionalImageTags: latest
