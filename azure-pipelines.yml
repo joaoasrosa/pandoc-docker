@@ -6,4 +6,13 @@ variables:
 
 steps:
 - script: docker build -f Dockerfile -t $(imageName) .
-  displayName: 'docker build'
+  displayName: 'Build image'
+
+- task: Docker@0
+  displayName: 'Push image'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryConnection: 'Docker Hub'
+    action: 'Push an image'
+    imageName: '$(imageName)'
+    includeLatestTag: true
