@@ -16,11 +16,9 @@ steps:
 - task: jessehouwing.vsts-snyk.vsts-snyk.SnykTask@1
   displayName: 'Scan for vulnerable in the Docker image'
   inputs:
-    optionFile: '$(imageName)'
     optServiceEndpoint: Snyk
-    optionSeverityThreshold: medium
     optionOrg: joaoasrosa
-    optAdditionalArguments: '--docker'
+    optAdditionalArguments: '$(imageName) --docker'
     optionUpgrade: true
 
 - task: Docker@0
