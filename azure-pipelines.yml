@@ -17,7 +17,7 @@ steps:
   displayName: 'Scan for vulnerable in the Docker image'
   inputs:
     optServiceEndpoint: Snyk
-    optionOrg: joaoasrosa
+    optionOrg: joaoasrosa-demo
     optAdditionalArguments: '$(imageName) --docker'
     optionUpgrade: true
 
