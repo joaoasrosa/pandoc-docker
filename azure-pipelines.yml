@@ -14,7 +14,10 @@ steps:
     includeLatestTag: true
 
 - script: mkdir ./node_modules && npm install --prefix ./ snyk && ./node_modules/.bin/snyk auth $(snyk-token) && ./node_modules/.bin/snyk test $(imageName) --docker --org=joaoasrosa --file=./Dockerfile
-  displayName: 'Scan for vulnerable in the Docker image'
+  displayName: 'Scan for vulnerabilities in the Docker image'
+
+- script: ./node_modules/.bin/snyk auth $(snyk-token) && ./node_modules/.bin/snyk monitor $(imageName) --docker --org=joaoasrosa
+  displayName: 'Monitor vulnerabilities in the Docker image'
 
 - task: Docker@0
   displayName: 'Push image'
