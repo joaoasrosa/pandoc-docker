@@ -5,6 +5,9 @@ variables:
   imageName: 'joaoasrosa/pandoc:1.0.$(build.buildId)'
 
 steps:
+- script: npm install snyk && ls && ls ./node_modules/.bin && ./node_modules/.bin/snyk auth $(snyk-token) && ./node_modules/.bin/snyk test $(imageName) --docker --org=joaoasrosa
+  displayName: 'Scan for vulnerable in the Docker image'
+
 - task: Docker@0
   displayName: 'Build image'
   inputs:
@@ -12,9 +15,6 @@ steps:
     dockerRegistryConnection: 'Docker Hub'
     imageName: '$(imageName)'
     includeLatestTag: true
-
-- script: npm install snyk && ls && ls ./node_modules/.bin && ./node_modules/.bin/snyk auth $(snyk-token) && ./node_modules/.bin/snyk test $(imageName) --docker --org=joaoasrosa
-  displayName: 'Scan for vulnerable in the Docker image'
 
 - task: Docker@0
   displayName: 'Push image'
