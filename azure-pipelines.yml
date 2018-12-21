@@ -1,33 +1,26 @@
-resources:
-  containers:
-  - container: azuredevops-pipeline-container
-    image: joaoasrosa/azuredevops-pipeline-container:latest
+pool:
+  vmImage: 'Ubuntu 16.04'
 
 variables:
   imageName: 'joaoasrosa/pandoc:1.0.$(build.buildId)'
 
-jobs:
-- job: build
-  container: azuredevops-pipeline-container
-  pool: 'Hosted Ubuntu 1604'
+steps:
+- task: Docker@0
+  displayName: 'Build image'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryConnection: 'Docker Hub'
+    imageName: '$(imageName)'
+    includeLatestTag: true
 
-  steps:
-  - task: Docker@0
-    displayName: 'Build image'
-    inputs:
-      containerregistrytype: 'Container Registry'
-      dockerRegistryConnection: 'Docker Hub'
-      imageName: '$(imageName)'
-      includeLatestTag: true
+- script: npm install snyk && snyk auth && snyk test $(imageName) --docker --org=joaoasrosa
+  displayName: 'Scan for vulnerable in the Docker image'
 
-  - script: snyk auth && snyk test $(imageName) --docker --org=joaoasrosa
-    displayName: 'Scan for vulnerable in the Docker image'
-
-  - task: Docker@0
-    displayName: 'Push image'
-    inputs:
-      containerregistrytype: 'Container Registry'
-      dockerRegistryConnection: 'Docker Hub'
-      action: 'Push an image'
-      imageName: '$(imageName)'
-      includeLatestTag: true
+- task: Docker@0
+  displayName: 'Push image'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryConnection: 'Docker Hub'
+    action: 'Push an image'
+    imageName: '$(imageName)'
+    includeLatestTag: true
