@@ -9,7 +9,7 @@ variables:
 jobs:
 - job: build
   container: azuredevops-pipeline-container
-  pool: 'Ubuntu 16.04'
+  pool: 'Ubuntu 1604'
 
   steps:
   - task: Docker@0
