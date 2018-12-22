@@ -8,9 +8,7 @@ RUN wget https://github.com/jgm/pandoc/releases/download/2.5/pandoc-2.5-linux.ta
   && apk update \
   && apk upgrade \
   && apk add --no-cache openjpeg \
-  && apk add --no-cache texlive \
-  && apk update \
-  && apk upgrade
+  && apk add --no-cache texlive
 
 ENV PANDOC_VERSION "2.5"
 
