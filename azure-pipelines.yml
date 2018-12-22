@@ -18,6 +18,7 @@ steps:
 
 - script: ./node_modules/.bin/snyk auth $(snyk-token) && ./node_modules/.bin/snyk monitor $(imageName) --docker --org=joaoasrosa
   displayName: 'Monitor vulnerabilities in the Docker image'
+  condition: succeededOrFailed()
 
 - task: Docker@0
   displayName: 'Push image'
