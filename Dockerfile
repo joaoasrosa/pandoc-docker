@@ -7,7 +7,9 @@ RUN wget https://github.com/jgm/pandoc/releases/download/2.4/pandoc-2.4-linux.ta
   && rm -f ./pandoc-2.4-linux.tar.gz \
   && apk update \
   && apk upgrade \
-  && apk add --no-cache texlive
+  && apk add --no-cache texlive \
+  && apk update \
+  && apk upgrade
 
 ENV PANDOC_VERSION "2.4"
 
