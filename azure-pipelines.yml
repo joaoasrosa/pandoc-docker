@@ -13,6 +13,9 @@ steps:
     imageName: '$(imageName)'
     includeLatestTag: true
 
+- script: mkdir ./node_modules && npm install --prefix ./ snyk && ./node_modules/.bin/snyk auth $(snyk-token) && ./node_modules/.bin/snyk monitor $(imageName) --docker --org=joaoasrosa
+  displayName: 'Monitor vulnerabilities in the Docker image'
+
 - task: Docker@0
   displayName: 'Push image'
   inputs:
@@ -21,3 +24,4 @@ steps:
     action: 'Push an image'
     imageName: '$(imageName)'
     includeLatestTag: true
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
