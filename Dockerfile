@@ -14,4 +14,4 @@ RUN tar xvzf ./pandoc-2.5-linux.tar.gz --strip-components 1 -C /usr/local/ \
   && apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main texlive \
   && apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main openjpeg=2.3.0-r1
 
-WORKDIR /source
+WORKDIR /data
