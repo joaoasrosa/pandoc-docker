@@ -2,7 +2,7 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 variables:
-  imageName: 'joaoasrosa/pandoc:1.0.$(build.buildId)'
+  imageName: 'joaoasrosa/pandoc:2.5.$(build.buildId)'
 
 steps:
 - task: Docker@0

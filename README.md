@@ -26,5 +26,5 @@ Options:
 The following command shows the use of a mapped volume containing the input and output files for conversion:
 
 ```
-docker run -v /tmp/my-data:/data joaoasrosa/pandoc pandoc -f markdown -t html5 myfile.md -o myfile.html
+docker run -v `pwd`:/data joaoasrosa/pandoc pandoc -f markdown -t html5 myfile.md -o myfile.html
 ```
