@@ -24,3 +24,4 @@ steps:
     action: 'Push an image'
     imageName: '$(imageName)'
     includeLatestTag: true
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
