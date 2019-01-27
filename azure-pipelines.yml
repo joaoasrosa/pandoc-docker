@@ -2,26 +2,84 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 variables:
-  imageName: 'joaoasrosa/pandoc:2.5.$(build.buildId)'
+  majorVersion: '2'
+  minorVersion: '$(majorVersion).5'
+  patchVersion: '$(minorVersion).0'
+  buildVersion: '$(patchVersion).$(build.buildId)'
+  imageName: 'joaoasrosa/pandoc:'
 
 steps:
 - task: Docker@0
-  displayName: 'Build image'
+  displayName: 'Build image: Tag major and latest'
   inputs:
     containerregistrytype: 'Container Registry'
     dockerRegistryConnection: 'Docker Hub'
-    imageName: '$(imageName)'
+    imageName: '$(imageName)$(majorVersion)'
     includeLatestTag: true
 
-- script: mkdir ./node_modules && npm install --prefix ./ snyk && ./node_modules/.bin/snyk auth $(snyk-token) && ./node_modules/.bin/snyk monitor $(imageName) --docker --org=joaoasrosa
+- task: Docker@0
+  displayName: 'Build image: Tag minor'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryConnection: 'Docker Hub'
+    imageName: '$(imageName)$(minorVersion)'
+    includeLatestTag: false
+
+- task: Docker@0
+  displayName: 'Build image: Tag patch'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryConnection: 'Docker Hub'
+    imageName: '$(imageName)$(patchVersion)'
+    includeLatestTag: false
+
+- task: Docker@0
+  displayName: 'Build image: Tag build'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryConnection: 'Docker Hub'
+    imageName: '$(imageName)$(buildVersion)'
+    includeLatestTag: false
+
+- script: mkdir ./node_modules && npm install --prefix ./ snyk && ./node_modules/.bin/snyk auth $(snyk-token) && ./node_modules/.bin/snyk monitor $(imageName)$(majorVersion) --docker --org=joaoasrosa
   displayName: 'Monitor vulnerabilities in the Docker image'
 
 - task: Docker@0
-  displayName: 'Push image'
+  displayName: 'Push image: Tag build'
   inputs:
     containerregistrytype: 'Container Registry'
     dockerRegistryConnection: 'Docker Hub'
     action: 'Push an image'
-    imageName: '$(imageName)'
+    imageName: '$(imageName)$(buildVersion)'
+    includeLatestTag: false
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+
+- task: Docker@0
+  displayName: 'Push image: Tag patch'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryConnection: 'Docker Hub'
+    action: 'Push an image'
+    imageName: '$(imageName)$(patchVersion)'
+    includeLatestTag: false
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+
+- task: Docker@0
+  displayName: 'Push image: Tag minor'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryConnection: 'Docker Hub'
+    action: 'Push an image'
+    imageName: '$(imageName)$(minorVersion)'
+    includeLatestTag: false
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+
+- task: Docker@0
+  displayName: 'Push image: Tag major and latest'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryConnection: 'Docker Hub'
+    action: 'Push an image'
+    imageName: '$(imageName)$(majorVersion)'
     includeLatestTag: true
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
