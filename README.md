@@ -1,6 +1,8 @@
 # Pandoc Docker Image
 Docker Image with Pandoc tooling. It includes Make and pandoc-crossref
 
+[![Build Status](https://dev.azure.com/joaoasrosa/joaoasrosa/_apis/build/status/joaoasrosa.pandoc-docker?branchName=master)](https://dev.azure.com/joaoasrosa/joaoasrosa/_build/latest?definitionId=1?branchName=master)
+
 ## Usage
 Supported conversion formats can be retrieved by executing the container without arguments. It will default 
 execute `pandoc --help`.
