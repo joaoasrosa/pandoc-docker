@@ -1,5 +1,5 @@
 # Pandoc Docker Image
-Docker Image with Pandoc tooling
+Docker Image with Pandoc tooling. It includes Make and pandoc-crossref
 
 ## Usage
 Supported conversion formats can be retrieved by executing the container without arguments. It will default 
