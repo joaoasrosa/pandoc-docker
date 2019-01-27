@@ -10,7 +10,7 @@ ADD https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.4.0b/lin
 
 RUN tar xvzf ./pandoc-2.5-linux.tar.gz --strip-components 1 -C /usr/local/ \
   && rm -f ./pandoc-2.5-linux.tar.gz \
-  && tar xvzf ./pandoc-crossref-2.5-linux.tar.gz --strip-components 1 -C /usr/local/ \
+  && tar xvzf ./pandoc-crossref-2.5-linux.tar.gz --strip-components 1 -C /usr/local/bin/ \
   && rm -f ./pandoc-crossref-2.5-linux.tar.gz \
   && apk update \
   && apk upgrade \
