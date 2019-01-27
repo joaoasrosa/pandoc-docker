@@ -24,8 +24,20 @@ commandTests:
     args: ["pandoc-crossref"]
     expectedOutput: ["/usr/local/bin/pandoc-crossref\n"]
 
+# check that the pandoc-crossref binary is the correct version
+  - name: "pandoc-crossref version"
+    command: "pandoc-crossref"
+    args: ["--version"]
+    expectedOutput: ["pandoc-crossref v0.3.4.0"]
+
 # check that the make binary is in the correct location
   - name: "make installation"
     command: "which"
     args: ["make"]
     expectedOutput: ["/usr/bin/make\n"]
+
+# check that the make binary is the correct version
+  - name: "make version"
+    command: "make"
+    args: ["--version"]
+    expectedOutput: ["GNU Make 4.2.1"]
