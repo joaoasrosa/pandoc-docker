@@ -1,0 +1,31 @@
+schemaVersion: "2.0.0"
+
+globalEnvVars:
+  - key: "PATH"
+    value: "/env/bin:$PATH"
+
+commandTests:
+
+# check that the pandoc binary is in the correct location
+  - name: "pandoc installation"
+    command: "which"
+    args: ["pandoc"]
+    expectedOutput: ["/usr/local/bin/pandoc\n"]
+
+# check that the pandoc binary is the correct version
+  - name: "pandoc version"
+    command: "pandoc"
+    args: ["--version"]
+    expectedOutput: ["pandoc 2.5"]
+
+# check that the pandoc-crossref binary is in the correct location
+  - name: "pandoc-crossref installation"
+    command: "which"
+    args: ["pandoc-crossref"]
+    expectedOutput: ["/usr/local/bin/pandoc-crossref\n"]
+
+# check that the make binary is in the correct location
+  - name: "make installation"
+    command: "which"
+    args: ["make"]
+    expectedOutput: ["/usr/bin/make\n"]
