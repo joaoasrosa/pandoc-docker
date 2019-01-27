@@ -41,7 +41,7 @@ steps:
     imageName: '$(imageName)$(buildVersion)'
     includeLatestTag: false
 
-- script: curl -LO https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64 && chmod +x container-structure-test-linux-amd64 && mkdir -p $HOME/bin && export PATH=$PATH:$HOME/bin && mv container-structure-test-linux-amd64 $HOME/bin/container-structure-test && container-structure-test test --image $(imageName):$(majorVersion) --config ./command-tests.yaml --config ./metadata-tests.yaml
+- script: curl -LO https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64 && chmod +x container-structure-test-linux-amd64 && mkdir -p $HOME/bin && export PATH=$PATH:$HOME/bin && mv container-structure-test-linux-amd64 $HOME/bin/container-structure-test && container-structure-test test --image $(imageName)$(buildVersion) --config ./command-tests.yaml --config ./metadata-tests.yaml
   displayName: 'Run container tests'
 
 - script: mkdir ./node_modules && npm install --prefix ./ snyk && ./node_modules/.bin/snyk auth $(snyk-token) && ./node_modules/.bin/snyk monitor $(imageName)$(majorVersion) --docker --org=joaoasrosa
