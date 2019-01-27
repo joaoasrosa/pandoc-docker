@@ -2,7 +2,7 @@ FROM alpine:3.8
 
 LABEL maintainer="João Rosa <joaoasrosa@gmail.com>"
 
-ENV PATH=/usr/local/pandoc-2.5/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ENV PANDOC_VERSION "2.5"
 
 ADD https://github.com/jgm/pandoc/releases/download/2.5/pandoc-2.5-linux.tar.gz ./pandoc-2.5-linux.tar.gz
