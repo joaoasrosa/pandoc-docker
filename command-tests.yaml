@@ -10,7 +10,7 @@ commandTests:
   - name: "pandoc installation"
     command: "which"
     args: ["pandoc"]
-    expectedOutput: ["/usr/local/bin/pandoc\n"]
+    expectedOutput: ["/usr/bin/pandoc\n"]
 
 # check that the pandoc binary is the correct version
   - name: "pandoc version"
@@ -22,7 +22,7 @@ commandTests:
   - name: "pandoc-crossref installation"
     command: "which"
     args: ["pandoc-crossref"]
-    expectedOutput: ["/usr/local/bin/pandoc-crossref\n"]
+    expectedOutput: ["/usr/bin/pandoc-crossref\n"]
 
 # check that the pandoc-crossref binary is the correct version
   - name: "pandoc-crossref version"
@@ -40,4 +40,4 @@ commandTests:
   - name: "make version"
     command: "make"
     args: ["--version"]
-    expectedOutput: ["GNU Make 4.2.1"]
+    expectedOutput: ["GNU Make 4.1"]
