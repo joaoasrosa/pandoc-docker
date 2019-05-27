@@ -16,7 +16,7 @@ commandTests:
   - name: "pandoc version"
     command: "pandoc"
     args: ["--version"]
-    expectedOutput: ["pandoc 2.5"]
+    expectedOutput: ["pandoc 2.7.2"]
 
 # check that the pandoc-crossref binary is in the correct location
   - name: "pandoc-crossref installation"
