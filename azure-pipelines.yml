@@ -4,7 +4,7 @@ pool:
 variables:
   majorVersion: '2'
   minorVersion: '$(majorVersion).7'
-  patchVersion: '$(minorVersion).2'
+  patchVersion: '$(minorVersion).3'
   buildVersion: '$(patchVersion).$(build.buildId)'
   imageName: 'joaoasrosa/pandoc:'
 
