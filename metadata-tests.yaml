@@ -2,7 +2,7 @@ schemaVersion: '2.0.0'
 metadataTest:
   env:
   - key: 'PANDOC_VERSION'
-    value: '2.7.2'
+    value: '2.7.3'
   - key: 'PANDOC_CROSSREF_VERSION'
     value: '0.3.4'
   - key: 'MAKE_VERSION'
