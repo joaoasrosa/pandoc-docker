@@ -3,6 +3,8 @@ Docker Image with Pandoc tooling. It includes Make and pandoc-crossref
 
 [![Build Status](https://dev.azure.com/joaoasrosa/joaoasrosa/_apis/build/status/joaoasrosa.pandoc-docker?branchName=master)](https://dev.azure.com/joaoasrosa/joaoasrosa/_build/latest?definitionId=1?branchName=master)
 
+[![Known Vulnerabilities](https://snyk.io/test/github/joaoasrosa/pandoc-docker/badge.svg)](https://snyk.io/test/github/joaoasrosa/pandoc-docker)
+
 ## Usage
 Supported conversion formats can be retrieved by executing the container without arguments. It will default 
 execute `pandoc --help`.
