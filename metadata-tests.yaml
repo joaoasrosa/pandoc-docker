@@ -4,7 +4,7 @@ metadataTest:
   - key: 'PANDOC_VERSION'
     value: '2.7.3'
   - key: 'PANDOC_CROSSREF_VERSION'
-    value: '0.3.4'
+    value: '0.3.4.1a'
   - key: 'MAKE_VERSION'
     value: '4.2.1'
   - key: 'PATH'

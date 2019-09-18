@@ -28,7 +28,7 @@ commandTests:
   - name: "pandoc-crossref version"
     command: "pandoc-crossref"
     args: ["--version"]
-    expectedOutput: ["pandoc-crossref v0.3.4.0"]
+    expectedOutput: ["pandoc-crossref v0.3.4.1a"]
 
 # check that the make binary is in the correct location
   - name: "make installation"
