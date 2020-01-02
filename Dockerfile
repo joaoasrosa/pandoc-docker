@@ -16,9 +16,10 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
   && dpkg -i ./pandoc-amd64.deb \
   && tar xvzf ./pandoc-crossref-linux.tar.gz --strip-components 1 -C /usr/bin/ \
   && rm -f ./pandoc-crossref-linux.tar.gz \
-  && sh calibre-linux-installer.sh \
   && apt-get update \
   && apt-get upgrade -y \
   && apt-get install -y texlive make 
+
+RUN ./calibre-linux-installer.sh
 
 WORKDIR /data
