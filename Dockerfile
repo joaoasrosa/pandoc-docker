@@ -20,6 +20,6 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
   && apt-get upgrade -y \
   && apt-get install -y texlive make 
 
-RUN ./calibre-linux-installer.sh
+RUN sudo ./calibre-linux-installer.sh
 
 WORKDIR /data
