@@ -9,3 +9,5 @@ metadataTest:
     value: '4.2.1'
   - key: 'PATH'
     value: '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+  - key: 'CALIBRE_VERSION'
+    value: '4.7.0'

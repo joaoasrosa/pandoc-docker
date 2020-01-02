@@ -41,3 +41,15 @@ commandTests:
     command: "make"
     args: ["--version"]
     expectedOutput: ["GNU Make 4.1"]
+
+# check that the calibre binary is in the correct location
+  - name: "calibre installation"
+    command: "which"
+    args: ["ebook-convert"]
+    expectedOutput: ["/usr/bin/ebook-convert\n"]
+
+# check that the calibre binary is the correct version
+  - name: "calibre version"
+    command: "ebook-convert"
+    args: ["--version"]
+    expectedOutput: ["ebook-convert 4.7.0"]
