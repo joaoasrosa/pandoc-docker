@@ -3,8 +3,8 @@ pool:
 
 variables:
   majorVersion: '2'
-  minorVersion: '$(majorVersion).7'
-  patchVersion: '$(minorVersion).3'
+  minorVersion: '$(majorVersion).9'
+  patchVersion: '$(minorVersion).1'
   buildVersion: '$(patchVersion).$(build.buildId)'
   imageName: 'joaoasrosa/pandoc:'
 

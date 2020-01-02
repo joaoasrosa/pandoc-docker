@@ -16,7 +16,7 @@ commandTests:
   - name: "pandoc version"
     command: "pandoc"
     args: ["--version"]
-    expectedOutput: ["pandoc 2.7.3"]
+    expectedOutput: ["pandoc 2.9.1"]
 
 # check that the pandoc-crossref binary is in the correct location
   - name: "pandoc-crossref installation"
@@ -28,7 +28,7 @@ commandTests:
   - name: "pandoc-crossref version"
     command: "pandoc-crossref"
     args: ["--version"]
-    expectedOutput: ["pandoc-crossref v0.3.4.1"]
+    expectedOutput: ["pandoc-crossref v0.3.6.1"]
 
 # check that the make binary is in the correct location
   - name: "make installation"
