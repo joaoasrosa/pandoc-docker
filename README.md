@@ -1,5 +1,5 @@
 # Pandoc Docker Image
-Docker Image with Pandoc tooling. It includes Make and pandoc-crossref
+Docker Image with Pandoc tooling. It includes Make, pandoc-crossref and ebook-tools
 
 [![Build Status](https://dev.azure.com/joaoasrosa/joaoasrosa/_apis/build/status/joaoasrosa.pandoc-docker?branchName=master)](https://dev.azure.com/joaoasrosa/joaoasrosa/_build/latest?definitionId=1?branchName=master)
 
