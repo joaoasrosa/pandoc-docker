@@ -7,5 +7,7 @@ metadataTest:
     value: '0.3.6.1a'
   - key: 'MAKE_VERSION'
     value: '4.2.1'
+  - key: 'EBOOK_TOOLS_VERSION'
+    value: '0.2.2'
   - key: 'PATH'
     value: '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
