@@ -17,6 +17,6 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
   && rm -f ./pandoc-crossref-linux.tar.gz \
   && apt-get update \
   && apt-get upgrade -y \
-  && apt-get install -y texlive make ebook-tools
+  && apt-get install -y texlive make ebook-tools-dbg
 
 WORKDIR /data
