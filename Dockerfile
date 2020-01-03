@@ -6,7 +6,7 @@ ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ENV PANDOC_VERSION "2.9.1"
 ENV PANDOC_CROSSREF_VERSION "0.3.6.1a"
 ENV MAKE_VERSION "4.2.1"
-ENV PANDOC_VERSION "0.2.2"
+ENV EBOOK_TOOLS_VERSION "0.2.2"
 
 ADD https://github.com/jgm/pandoc/releases/download/2.9.1/pandoc-2.9.1-1-amd64.deb ./pandoc-amd64.deb
 ADD https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.6.1a/linux-pandoc_2_9_1.tar.gz ./pandoc-crossref-linux.tar.gz
